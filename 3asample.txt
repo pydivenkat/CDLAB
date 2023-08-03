@@ -1,0 +1,45 @@
+/*
+    This is a multi-line comment.
+    It spans multiple lines.
+*/
+
+#include <stdio.h>  // Include standard input/output library
+
+int main() {
+    // This is a single-line comment.
+
+    // Let's print "Hello, World!" to the console.
+    printf("Hello, World!\n");  // This is a printf statement
+
+    /*
+        This is another multi-line comment.
+        It contains more detailed explanations.
+    */
+
+    // Some mathematical operations
+
+    int a = 10; // Initializing variable 'a' with value 10
+    int b = 5;  // Initializing variable 'b' with value 5
+
+    // Addition
+    int sum = a + b;  // Calculating the sum of 'a' and 'b'
+
+    // Subtraction
+    int difference = a - b;  // Calculating the difference between 'a' and 'b'
+
+    // Multiplication
+    int product = a * b;  // Calculating the product of 'a' and 'b'
+
+    // Division
+    int quotient = a / b;  // Calculating the quotient of 'a' and 'b'
+
+    // Output the results
+    printf("Sum: %d\n", sum);                // Printing the sum
+    printf("Difference: %d\n", difference);  // Printing the difference
+    printf("Product: %d\n", product);        // Printing the product
+    printf("Quotient: %d\n", quotient);      // Printing the quotient
+
+    return 0;  // Indicate successful completion of the program
+}
+
+// The main function ends here.
