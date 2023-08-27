@@ -1,27 +1,30 @@
 %{
-    #include <stdio.h>
-    #include <stdlib.h>
-    extern FILE *yyin, *yyout;
-    int single = 0, multi = 0;
+	#include<stdio.h>
+	int single=0,multi=0,mlines=0;
 %}
 
 %%
-"//".*\n	{single++; fprintf(yyout, "%s", yytext);}
-"/*"[^*/]*"*/"	{multi++; fprintf(yyout, "%s", yytext);}
+"//"[^\n]*	{single++;}
+"/"[^]"/"	{
+	multi++;
+	for(int i=0;i<yyleng;i++)
+	{
+		if(yytext[i]=='\n')
+			mlines++;
+	}
+}
 %%
 
-int ywrap()
+int yywrap()
 {
-   return 1;
+	return 1;
 }
 
 int main()
 {
-    yyin = fopen("3asample.txt", "r");
-    yyout = fopen("bar.txt", "w");
-    yylex();
-    printf("Number of single line comments = %d\n", single);
-    printf("Number of multi line comments = %d\n", multi);
-    return 0;
+	yyin=fopen("inp.txt","r");
+	yyout=fopen("out.txt","w");
+	yylex();
+	printf("Single: %d\n Multi: %d\nNo. of New Lines: %d\n",single,multi,mlines);
+	return 0;
 }
-    
