@@ -5,8 +5,7 @@
 
 %%
 "//"[^\n]*	{single++;}
-"/"[^]"/"	{
-	multi++;
+"/*"[^*]*"*/"	{ multi++; 
 	for(int i=0;i<yyleng;i++)
 	{
 		if(yytext[i]=='\n')
@@ -14,15 +13,13 @@
 	}
 }
 %%
-
 int yywrap()
 {
 	return 1;
 }
-
 int main()
 {
-	yyin=fopen("inp.txt","r");
+	yyin=fopen("3asample.txt","r");
 	yyout=fopen("out.txt","w");
 	yylex();
 	printf("Single: %d\n Multi: %d\nNo. of New Lines: %d\n",single,multi,mlines);
